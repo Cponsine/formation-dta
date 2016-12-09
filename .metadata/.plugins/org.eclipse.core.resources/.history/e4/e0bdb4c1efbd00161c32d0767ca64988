@@ -1,0 +1,148 @@
+package fr.pizzeria.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import java.sql.PreparedStatement;
+
+import fr.pizzeria.Exception.DeletePizzaException;
+import fr.pizzeria.Exception.SavePizzaException;
+import fr.pizzeria.Exception.UpdatePizzaException;
+import fr.pizzeria.model.CategoriePizza;
+import fr.pizzeria.model.Pizza;
+
+public class PizzaDaoJdbc implements PizzaDao {
+	Statement st;
+	Connection con;
+	
+	public void pizzaDaoConnect() throws SQLException {
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pizzeria","root","");
+		st = con.createStatement();
+	}
+	
+	public void pizzaDaoDisconnect() throws SQLException{
+		con.close();
+	}
+	@Override
+	public List<Pizza> findAllPizzas() throws SQLException {
+		List<Pizza> pizz= new ArrayList<Pizza>();
+		ResultSet rs;
+		try {
+			pizzaDaoConnect();
+			rs = st.executeQuery("select * from pizza");
+			while(rs.next()){
+				int id = rs.getInt("pizzaID");//System.out.println("j'ai recu^l'id");
+				String codepizza = rs.getString("code");//System.out.println("j'ai recu^le code");
+				String nom = rs.getString("libelle");//System.out.println("j'ai recu^le nom");
+				double price = rs.getDouble("prix");//System.out.println("j'ai recu^le prix");
+				String cat = rs.getString("categorie");System.out.println("j'ai recu^la categ " + CategoriePizza.valueOf(cat.toUpperCase()));
+				
+				//System.out.println(CategoriePizza.valueOf(cat.toUpperCase()));
+				pizz.add(new Pizza(id,codepizza,nom,price,CategoriePizza.valueOf(cat.toUpperCase())));				
+		}
+			rs.close();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		pizzaDaoDisconnect();
+		return pizz;
+	}
+	@Override
+	public boolean saveNewPizza(Pizza pizza) throws SavePizzaException {
+		try{
+			pizzaDaoConnect();
+			PreparedStatement ps=con.prepareStatement("insert into pizza (code,libelle,prix,categorie)"
+					+ "values(?,?,?,?)");
+			ps.setString(1, pizza.getCode());
+			ps.setString(2,pizza.getNom());
+			ps.setDouble(3, pizza.getPrix());
+			String s=pizza.getCat().getValue();//.getValue();
+			System.out.println("prob: "+s);
+			ps.setString(4, s);
+			ps.executeUpdate();
+			ps.close();
+			pizzaDaoDisconnect();
+		}
+		catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		// TODO Auto-generated method stub
+		return false;
+	}
+	/*
+
+public boolean updatePizza(String codePizza, Pizza pizza) throws UpdatePizzaException {
+        
+        try {            
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pizzeria","root","");
+            //Statement statement = connection.createStatement();
+        
+            PreparedStatement UpdatePizza = connection.prepareStatement("UPDATE pizza SET ID=?, LIBELLE=?, REFERENCE=?, PRIX=?, URL_IMG=?, CATEGORIE=? WHERE REFERENCE=?");
+            
+            UpdatePizza.setInt(1,pizza.getId());
+            UpdatePizza.setString(2,pizza.getNom());
+            UpdatePizza.setString(3,pizza.getCode());
+            UpdatePizza.setDouble(4,pizza.getPrix());
+            UpdatePizza.setString(5,"");
+            UpdatePizza.setString(6,pizza.getCat().toString());
+            UpdatePizza.setString(7,codePizza);
+            
+            UpdatePizza.executeUpdate();
+            
+            connection.close();
+       
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+ 
+        return false;
+    }
+	(non-Javadoc)
+	 * @see fr.pizzeria.dao.PizzaDao#updatePizza(java.lang.String, fr.pizzeria.model.Pizza)
+	 */
+	@Override
+	public boolean updatePizza(String codePizza, Pizza pizza) throws UpdatePizzaException {
+		
+		try {
+			PreparedStatement ps=con.prepareStatement("update pizza set code= ? libelle = ? prix = ? categorie = ? where pizzaID=?");
+			ps.setString(1,pizza.getCode());
+			ps.setString(2,pizza.getNom());
+			ps.setDouble(3, pizza.getPrix());
+			ps.setString(4, pizza.getCat().getValue());
+			ps.setInt(5, pizza.getId());
+			ps.executeUpdate();
+			pizzaDaoDisconnect();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	@Override
+	public boolean deletePizza(String codePizza) throws DeletePizzaException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public Optional<Pizza> findPizzaByCode(String codePizza) {
+		
+		
+		return null;
+	}
+	@Override
+	public boolean isCodeExist(String codePizza) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+}

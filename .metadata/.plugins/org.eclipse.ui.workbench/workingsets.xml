@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1481189048159_1" label="coline-pizzeria-project" name="coline-pizzeria-project">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/coline-pizzeria-project" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/coline-pizzeria-dao" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/coline-pizzeria-model" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1481189003591_0" label="Window Working Set" name="Aggregate for window 1481189003591"/>
+</workingSetManager>

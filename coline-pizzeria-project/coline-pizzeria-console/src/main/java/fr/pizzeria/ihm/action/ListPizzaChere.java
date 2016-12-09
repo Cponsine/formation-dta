@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm.action;
 
+import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,7 @@ public class ListPizzaChere extends Action{
 	}
 
 	@Override
-	public void do_action() {
+	public void do_action() throws SQLException {
 
 		
 		

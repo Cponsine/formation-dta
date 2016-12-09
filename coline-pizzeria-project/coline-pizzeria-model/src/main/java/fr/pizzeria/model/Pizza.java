@@ -1,13 +1,23 @@
 package fr.pizzeria.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Pizza {
 
-	private int id;
+	@Id 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="PizzaID")
+	private Integer id;
+//pas besoin de renommer
 	private String code;
+	@Column(name="libelle")
 	private String nom;
 	private double prix;
+	@Enumerated(EnumType.STRING)
+	@Column(name="categorie")
 	private CategoriePizza cat;
-	
+	@Transient
 	public static int nbPizzas;
 
 
@@ -15,7 +25,7 @@ public class Pizza {
 		super();
 	}
 
-	public Pizza(int id, String code, String nom, double prix,CategoriePizza cat) {
+	public Pizza(Integer id, String code, String nom, double prix,CategoriePizza cat) {
 		super();
 		this.id = id;
 		this.code = code;
@@ -24,11 +34,11 @@ public class Pizza {
 		this.cat = cat;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

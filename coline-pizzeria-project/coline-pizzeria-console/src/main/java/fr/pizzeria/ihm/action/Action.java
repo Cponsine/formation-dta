@@ -1,5 +1,7 @@
 package fr.pizzeria.ihm.action;
 
+import java.sql.SQLException;
+
 public abstract class Action {
 
 	private String description;
@@ -12,6 +14,6 @@ public abstract class Action {
 		this.description = description;
 	}
 
-	public abstract void do_action();
+	public abstract void do_action() throws SQLException;
 	public abstract void describe_action();
 }

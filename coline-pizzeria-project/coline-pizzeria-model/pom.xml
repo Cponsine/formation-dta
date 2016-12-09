@@ -8,17 +8,14 @@
   	<relativePath>../pom.xml</relativePath>
   </parent>
   
-  <groupId>dta</groupId>
   <artifactId>coline-pizzeria-model</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  
   <packaging>jar</packaging>
 
 
 <build>
 <finalName>pizzeria-model</finalName>
 </build>
-
-
 
 	<dependencies>
 		<dependency>
@@ -29,6 +26,12 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
+<dependency>
+    <groupId>org.hibernate.javax.persistence</groupId>
+    <artifactId>hibernate-jpa-2.1-api</artifactId>
+</dependency>
+		
 	</dependencies>
 
 </project>

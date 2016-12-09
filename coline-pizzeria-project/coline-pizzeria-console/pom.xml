@@ -11,7 +11,7 @@
   </parent>
   
   
-  <name>coline-pizzeria-console</name>
+  <name>pizzeria-console</name>
   
   
   
@@ -62,6 +62,17 @@
 			<groupId>${project.groupId}</groupId>
 			<artifactId>coline-pizzeria-model</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
+<dependency>
+    <groupId>org.hibernate.javax.persistence</groupId>
+    <artifactId>hibernate-jpa-2.1-api</artifactId>
+</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-entitymanager</artifactId>
+</dependency>
+		
 	</dependencies>
   
 </project>

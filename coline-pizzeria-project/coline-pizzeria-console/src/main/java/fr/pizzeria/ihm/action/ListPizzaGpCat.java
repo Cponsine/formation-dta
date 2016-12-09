@@ -1,10 +1,11 @@
 package fr.pizzeria.ihm.action;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 import fr.pizzeria.ihm.IhmUtil;
-import fr.pizzeria.dao.*;
+//import fr.pizzeria.dao.*;
 import fr.pizzeria.model.*;
 
 
@@ -19,7 +20,7 @@ public class ListPizzaGpCat extends Action{
 	}
 
 	@Override
-	public void do_action() {
+	public void do_action() throws SQLException {
 
 		
 		

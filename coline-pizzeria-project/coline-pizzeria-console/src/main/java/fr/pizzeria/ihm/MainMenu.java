@@ -1,4 +1,5 @@
 package fr.pizzeria.ihm;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -47,7 +48,7 @@ public class MainMenu {
 		}
 	
 
-	private boolean parseAndExec() {
+	private boolean parseAndExec() throws SQLException {
 
 		String input = utils.getScanner().next();
 
@@ -60,7 +61,7 @@ public class MainMenu {
 		return false;
 	}
 
-	public void start(){
+	public void start() throws SQLException{
 
 		do {
 			this.displayMenu();
