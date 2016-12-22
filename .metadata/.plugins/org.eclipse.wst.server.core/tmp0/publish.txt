@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Thu Dec 22 09:54:36 CET 2016
+org.eclipse.jst.j2ee.server\:coline-pizzeria-dao=WEB-INF/lib/coline-pizzeria-dao-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:coline-pizzeria-model=WEB-INF/lib/coline-pizzeria-model-0.0.1-SNAPSHOT.jar

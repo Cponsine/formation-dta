@@ -88,9 +88,7 @@ public class PizzaDaoJpa implements PizzaDao{
 	@Override
 	public boolean isCodeExist(String codePizza) throws SQLException {
 		return findPizzaByCode(codePizza).isPresent();
-		//Query q=em.createQuery("select PizzaID from Pizza p where p.code = code ");
-		//q.setParameter(1, codePizza);
-		//return !q.getResultList().isEmpty();
+
 	}
 
 }

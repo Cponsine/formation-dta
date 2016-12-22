@@ -1,0 +1,66 @@
+
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import fr.pizzeria.Exception.DeletePizzaException;
+import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.PizzaDaoJpa;
+
+/**
+ * Servlet implementation class SupprPizzaController
+ */
+public class SupprPizzaController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SupprPizzaController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response){
+		String code = request.getParameter("code");
+
+        PizzaDaoJpa dao=new PizzaDaoJpa();
+		try {
+			if (dao.findAllPizzas().stream().filter(p -> p.getCode().equals(code)).findFirst().isPresent()) {
+				try {					
+					dao.deletePizza(code);
+					response.sendRedirect("/pizzeria-admin-app/api/servlet/list");
+				} catch (DeletePizzaException | IOException e) {
+					// Génerer lees pages d'erreurs --> impossible de trouver la
+					// pizza dans la base
+					e.printStackTrace();
+				}
+			}
+		} catch (SQLException e) {
+			// Génerer lees pages d'erreurs --> impossible de trouver la pizza
+			// dans interface via la liste
+			e.printStackTrace();
+		}
+	}
+}

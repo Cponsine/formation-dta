@@ -9,7 +9,8 @@
 		<module>coline-pizzeria-dao</module>
 		<module>coline-pizzeria-model</module>
 		<module>coline-pizzeria-console</module>
-	</modules>
+		<module>adminApp</module>
+  </modules>
   
   
   <properties>
@@ -70,7 +71,11 @@
     <artifactId>hibernate-jpa-2.1-api</artifactId>
     <version>1.0.0.Final</version>
 </dependency>
-
+<dependency>
+			<groupId>dta</groupId>
+			<artifactId>adminApp</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		</dependencies>
 	</dependencyManagement>
 </project>

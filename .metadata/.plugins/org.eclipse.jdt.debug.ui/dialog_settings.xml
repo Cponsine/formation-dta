@@ -17,4 +17,8 @@
 		<item value="614" key="WIDTH"/>
 		<item value="194" key="HEIGHT"/>
 	</section>
+	<section name="AddExceptionDialog">
+		<item value="true" key="caughtChecked"/>
+		<item value="true" key="uncaughtChecked"/>
+	</section>
 </section>

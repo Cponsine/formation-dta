@@ -5,9 +5,6 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
 
-import javax.print.attribute.standard.PrinterLocation;
-import javax.swing.plaf.synth.SynthSpinnerUI;
-
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.dao.PizzaDaoArray;
 import fr.pizzeria.ihm.IhmUtil;
