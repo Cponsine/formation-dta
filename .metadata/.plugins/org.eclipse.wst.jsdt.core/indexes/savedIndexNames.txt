@@ -1,7 +1,0 @@
-INDEX VERSION 1.3+C:\Users\ETY4\Documents\Java\formation-dta\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2415763716.index
-3105275104.index
-2268630927.index
-3825469610.index
-652059255.index
-2239409567.index

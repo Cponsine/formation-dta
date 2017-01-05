@@ -1,3 +1,0 @@
-#Classe d'implémentation
-# dao.impl=${implementation.dao}
-dao.impl=fr.pizzeria.dao.PizzaDaoJdbc
