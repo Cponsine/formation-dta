@@ -8,7 +8,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import fr.pizzeria.Exception.DeletePizzaException;
@@ -27,15 +26,13 @@ public class PizzaDaoJpa implements PizzaDao{
 	}
 
 	@Override
-	public List<Pizza> findAllPizzas() throws SQLException {
-		// TODO Auto-generated method stub
+	public List<Pizza> findAllPizzas() throws SQLException {		
 		TypedQuery<Pizza> q =em.createQuery("select p from Pizza p",Pizza.class);
 		return q.getResultList();
 	}
 
 	@Override
 	public boolean saveNewPizza(Pizza pizza) throws SavePizzaException {
-		// TODO Auto-generated method stub
 		em.getTransaction().begin();
 		em.persist(pizza);
 		em.getTransaction().commit();

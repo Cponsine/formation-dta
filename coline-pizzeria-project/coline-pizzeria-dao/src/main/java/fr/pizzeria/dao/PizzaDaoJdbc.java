@@ -48,7 +48,7 @@ public class PizzaDaoJdbc implements PizzaDao {
 		}
 			rs.close();
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
+			// 
 			e1.printStackTrace();
 		}
 		
@@ -64,18 +64,17 @@ public class PizzaDaoJdbc implements PizzaDao {
 			ps.setString(1, pizza.getCode());
 			ps.setString(2,pizza.getNom());
 			ps.setDouble(3, pizza.getPrix());
-			String s=pizza.getCat().getValue();//.getValue();
-			System.out.println("prob: "+s);
-			ps.setString(4, s);System.out.println(ps.toString());
+			String s=pizza.getCat().getValue();
+			ps.setString(4, s);//System.out.println(ps.toString());
 			ps.executeUpdate();
 			//ps.close();
 			pizzaDaoDisconnect();
 		}
 		catch (SQLException e1) {
-			// TODO Auto-generated catch block
+			 
 			e1.printStackTrace();
 		}
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
@@ -89,12 +88,12 @@ public class PizzaDaoJdbc implements PizzaDao {
 			ps.setString(2,pizza.getNom());
 			ps.setDouble(3, pizza.getPrix());
 			ps.setString(4, pizza.getCat().getValue());
-			ps.setInt(5, pizza.getId());System.out.println(ps.toString());
+			ps.setInt(5, pizza.getId());//System.out.println(ps.toString());
 			ps.executeUpdate();
 			pizzaDaoDisconnect();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return false;
@@ -106,11 +105,11 @@ public class PizzaDaoJdbc implements PizzaDao {
 			pizzaDaoConnect();
             PreparedStatement ps = con.prepareStatement("DELETE FROM pizza WHERE code=?");
             ps.setString(1,codePizza);
-            System.out.println(ps);
+            //System.out.println(ps);
             ps.execute();
             pizzaDaoDisconnect();        
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
 

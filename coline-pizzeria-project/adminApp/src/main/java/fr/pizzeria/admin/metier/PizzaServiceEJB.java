@@ -1,10 +1,6 @@
 package fr.pizzeria.admin.metier;
 
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -25,12 +21,12 @@ public class PizzaServiceEJB {
   //String daoConfig = bundle.getString("dao.impl");
 
     /*public PizzaServiceEJB() {
-		// TODO Auto-generated constructor stub
+		
 	
         try {
 			pizzaJpa = (PizzaService) Class.forName(daoConfig).newInstance();
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}*/
@@ -43,7 +39,6 @@ public class PizzaServiceEJB {
 	}
 	
 	public Pizza saveNewPizza(Pizza pizza) {
-		// TODO Auto-generated method stub
 		em.persist(pizza);
 		return pizza;
 	}

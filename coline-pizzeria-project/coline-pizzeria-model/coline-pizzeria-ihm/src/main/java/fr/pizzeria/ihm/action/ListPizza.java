@@ -19,7 +19,7 @@ public class ListPizza extends Action {
 		for (Pizza p: utils.getPizzaDao().findAllPizzas()) {
 			System.out.println(p.toString());
 		}
-		System.out.println(utils.getPizzaDao().findAllPizzas().size() + " Pizzas");
+		System.out.println(utils.getPizzaDao().findAllPizzas().size() + " pizzas");
 	}
 	
 	@Override

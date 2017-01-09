@@ -22,7 +22,7 @@ public class DeletePizza extends Action {
 	private void printPizzaList() throws SQLException {
 
 		for (Pizza p: pizzaDao.findAllPizzas()) {
-			System.out.println(p.getCode() + " - " + p.getNom() + " (" + p.getPrix() + " €)");
+			System.out.println(p.getCode() + " - " + p.getNom() + " (" + p.getPrix() + "€)");
 		}
 		System.out.println("Veuillez choisir la pizza à supprimer.");
 		System.out.println("(99 pour abandonner).");

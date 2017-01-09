@@ -18,7 +18,6 @@ public class Livreur {
 	Set<Commande> commandesL;
 	public Livreur() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 		
 	public int getId() {

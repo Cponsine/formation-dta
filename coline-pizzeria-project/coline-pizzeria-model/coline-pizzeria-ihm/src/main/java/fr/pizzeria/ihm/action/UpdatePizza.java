@@ -16,7 +16,7 @@ public class UpdatePizza extends Action {
 
 	public UpdatePizza(IhmUtil utils) {
 		super();
-		this.setDescription("3. Mettre à jour une pizza");
+		this.setDescription("3. Mettre à jour Une pizza ");
 		this.reader = utils.getScanner();
 		this.pizzaDao = utils.getPizzaDao();
 	}
@@ -24,7 +24,7 @@ public class UpdatePizza extends Action {
 	private void printPizzaList() {
 
 		for (Pizza p: pizzaDao.findAllPizzas()) {
-			System.out.println(p.getCode() + " - " + p.getNom() + " (" + p.getPrix() + " €)");
+			System.out.println(p.getCode() + " - " + p.getNom() + " (" + p.getPrix() + "€)");
 		}
 		System.out.println("Veuillez choisir la pizza à modifier.");
 		System.out.println("(99 pour abandonner).");

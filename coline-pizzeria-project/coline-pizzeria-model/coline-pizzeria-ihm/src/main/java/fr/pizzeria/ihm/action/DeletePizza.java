@@ -13,7 +13,7 @@ public class DeletePizza extends Action {
 
 	public DeletePizza(IhmUtil utils) {
 		super();
-		this.setDescription("4. Supprimer une pizza");
+		this.setDescription("4. Supprimer une pizza -project/model/ihm");
 		this.reader = utils.getScanner();
 		this.pizzaDao = utils.getPizzaDao();
 	}
@@ -21,9 +21,9 @@ public class DeletePizza extends Action {
 	private void printPizzaList() {
 
 		for (Pizza p: pizzaDao.findAllPizzas()) {
-			System.out.println(p.getCode() + " - " + p.getNom() + " (" + p.getPrix() + " €)");
+			System.out.println(p.getCode() + " - " + p.getNom() + " (" + p.getPrix() + " ï¿½)");
 		}
-		System.out.println("Veuillez choisir la pizza à supprimer.");
+		System.out.println("Veuillez choisir la pizza ï¿½ supprimer.");
 		System.out.println("(99 pour abandonner).");
 	}
 

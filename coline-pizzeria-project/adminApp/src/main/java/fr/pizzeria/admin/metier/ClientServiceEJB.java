@@ -16,7 +16,6 @@ public class ClientServiceEJB {
 	
 	public ClientServiceEJB() {
 	super();
-	// TODO Auto-generated constructor stub
 }
 
 	public List<Client> findAllClients()  {
@@ -59,6 +58,4 @@ public class ClientServiceEJB {
 		return pizzaJpa.isCodeExist(codePizza);
 	}
 	*/
-
-
 }

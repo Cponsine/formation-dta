@@ -24,7 +24,6 @@ public class PizzaService {
         try {
 			pizzaJpa = (PizzaDaoJpa) Class.forName(daoConfig).newInstance();
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -35,7 +34,6 @@ public class PizzaService {
 	}
 	
 	public boolean saveNewPizza(Pizza pizza) throws SavePizzaException {
-		// TODO Auto-generated method stub
 		return pizzaJpa.saveNewPizza(pizza);
 	}
 

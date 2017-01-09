@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ import fr.pizzeria.model.Pizza;
 /**
  * Servlet implementation class PizzaServletWebApi
  */
+@WebServlet("/blabla")
 public class PizzaServletWebApi extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final transient PizzaDao pizzaDao = new PizzaDaoJpa();
@@ -27,7 +29,7 @@ public class PizzaServletWebApi extends HttpServlet {
      */
     public PizzaServletWebApi() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
 	/**
@@ -54,7 +56,7 @@ public class PizzaServletWebApi extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 		String code = request.getParameter("code");
 		String nom = request.getParameter("nom");
@@ -76,10 +78,10 @@ public class PizzaServletWebApi extends HttpServlet {
 		try {
 			pizzaDao.updatePizza(codePizza, pizza);
 		} catch (UpdatePizzaException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -89,7 +91,7 @@ public class PizzaServletWebApi extends HttpServlet {
 		try {
 			pizzaDao.deletePizza(codePizza);
 		} catch (DeletePizzaException | SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

@@ -63,16 +63,24 @@
 			<artifactId>coline-pizzeria-model</artifactId>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
-<dependency>
-    <groupId>org.hibernate.javax.persistence</groupId>
-    <artifactId>hibernate-jpa-2.1-api</artifactId>
-</dependency>
+		<dependency>
+    		<groupId>org.hibernate.javax.persistence</groupId>
+    		<artifactId>hibernate-jpa-2.1-api</artifactId>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
-<dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-entitymanager</artifactId>
-</dependency>
-		
+		<dependency>
+   			<groupId>org.hibernate</groupId>
+    		<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+		<groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
 	</dependencies>
   
 </project>

@@ -1,7 +1,5 @@
 package fr.pizzeria.admin.metier;
 import java.util.List;
-import java.util.Optional;
-
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;

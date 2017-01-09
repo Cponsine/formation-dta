@@ -2,20 +2,37 @@ package fr.pizzeria.ihm;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import fr.pizzeria.ihm.action.*;
 
-
+@Component
 public class MainMenu {
 
 	//Action[] menu = new Action[5];
-
+	@Autowired
 	IhmUtil utils;
 	
-	Map<Integer, Action> menu = new HashMap<>();
-			
+	public MainMenu() {
+		super();
+	}
 
+	Map<Integer, Action> menu = new HashMap<>();
+	
+	@PostConstruct		
+	public void init(){
+		this.menu.put(0, new ListPizza(utils));
+		this.menu.put(1, new AddPizza(utils));		
+		this.menu.put(2, new UpdatePizza(utils));
+		this.menu.put(3, new DeletePizza(utils)); 
+		this.menu.put(4, new ListPizzaGpCat(utils));
+		this.menu.put(5, new ListPizzaChere(utils));
+		this.menu.put(6, new ExitMenu());		
+	}
+	
 	public MainMenu(IhmUtil utils) {
 
 		this.menu.put(0, new ListPizza(utils));
@@ -26,13 +43,11 @@ public class MainMenu {
 		this.menu.put(4, new ListPizzaGpCat(utils));
 		this.menu.put(5, new ListPizzaChere(utils));
 		this.menu.put(6, new ExitMenu());
-		
-		
 
 		this.utils = utils;
 	}
 
-	private void displayMenu() {
+	public void displayMenu() {
 
 		System.out.println("\n ***** Pizzeria Administration *****");
 		

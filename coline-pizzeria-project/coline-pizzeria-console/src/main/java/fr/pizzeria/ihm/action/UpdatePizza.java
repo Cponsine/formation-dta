@@ -37,9 +37,14 @@ public class UpdatePizza extends Action {
 		while (true) {
 			printPizzaList();
 
-			String code = reader.next();System.out.println("j'ai recu le code "+code);
+			String code = reader.next();//System.out.println("j'ai recu le code "+code);
+			if (code.equals("99")) 
+				break;
+			else {
 			Optional<Pizza> optPizza = pizzaDao.findPizzaByCode(code);
-			if (optPizza.isPresent()) {System.out.println("j'ai une pizza");
+			if (optPizza.isPresent()) {
+				System.out.println("j'ai une pizza");
+			
 				Pizza pizza = optPizza.get();
 				System.out.println("Veuillez saisir le code à updater");
 				String newCode = reader.next();
@@ -63,7 +68,7 @@ public class UpdatePizza extends Action {
 				try {
 					pizza.setCat(CategoriePizza.valueOf(cat.toUpperCase()));
 				} catch (Exception e) {
-					System.out.println("catégorie invalide");
+					System.out.println("Catégorie invalide");
 				}
 				System.out.println("la pizza: "+pizza.toString());
 				this.pizzaDao.updatePizza(code, pizza);
@@ -71,8 +76,7 @@ public class UpdatePizza extends Action {
 				
 				
 			}
-			else if (code.equals("99")) {
-				break;
+			else System.out.println("ta pizza elle est pas la!");
 			}
 		}
 	}
